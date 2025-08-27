@@ -118,23 +118,18 @@ elif(apply=="disease prediction"):
         st.success(f"Your plant is having this disease: {class_names[result_indx]}")
         st.session_state["prediction"] = class_names[result_indx]
 
-        
-
-
-      
-
-    # Initialize client with API key stored in Streamlit secrets
+            # Initialize client with API key stored in Streamlit secrets
         client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
         if st.button("Get Cure & Recommendation"):
-            
             disease = st.session_state.get("prediction", "Unknown disease")
             prompt = f"Give treatment and prevention tips for {disease} in plants."
 
             response = client.chat.completions.create(
-            model="gpt-4o-mini",
+                model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a plant disease expert."},
-                {"role": "user", "content": prompt}
+            {"role": "system", "content": "You are a plant disease expert."},
+            {"role": "user", "content": prompt}
             ],
             max_tokens=200
         )
@@ -142,12 +137,4 @@ elif(apply=="disease prediction"):
         st.subheader("Cure & Recommendation")
         st.write(response.choices[0].message.content)
 
-
-
-
-
-
-
-
-
-
+    
