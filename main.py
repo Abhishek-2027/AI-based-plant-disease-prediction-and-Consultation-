@@ -27,7 +27,7 @@ apply=st.sidebar.selectbox("select pages ",['Home','disease prediction','about']
 if apply=="Home":
     st.header('PLANT DISEASE RECOGNITION SYSTEM ')
     image_path="home_page_image.jpeg"
-    st.image(image_path,use_column_width=True)
+    st.image(image_path,use_container_width=True)
     st.markdown("""
     # 🌱 Welcome to the Plant Disease Recognition System! 🌿
 
@@ -66,7 +66,7 @@ elif(apply=="disease prediction"):
     st.header("Disease recognition")
     test_image=st.file_uploader("click to upload image")
     if(st.button("show image")):
-        st.image(test_image,use_column_width=True)
+        st.image(test_image,use_container_width=True)
 
     if(st.button("check disease")):
         st.write(".....searchig best match ....")
@@ -111,8 +111,9 @@ elif(apply=="disease prediction"):
         "Tomato___Tomato_mosaic_virus",
         "Tomato___healthy"
     ]
-        st.success("your plant is having this disease :",class_names[result_indx])
+        st.success(f"Your plant is having this disease: {class_names[result_indx]}")
 
     
+
 
 
