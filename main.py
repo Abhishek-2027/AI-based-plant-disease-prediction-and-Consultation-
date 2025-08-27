@@ -4,6 +4,7 @@ from tensorflow.keras.preprocessing import image
 import streamlit as st
 
 import numpy as np 
+from openai import OpenAI
 
 
 
@@ -113,8 +114,33 @@ elif(apply=="disease prediction"):
         "Tomato___healthy"
     ]
         st.success(f"Your plant is having this disease: {class_names[result_indx]}")
+        st.session_state["prediction"] = class_name[result_index]
 
-    
+        
+
+
+      
+
+    # Initialize client with API key stored in Streamlit secrets
+      client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+      if st.button("Get Cure & Recommendation"):
+        
+        disease = st.session_state.get("prediction", "Unknown disease")
+        prompt = f"Give treatment and prevention tips for {disease} in plants."
+
+        response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a plant disease expert."},
+            {"role": "user", "content": prompt}
+          ],
+          max_tokens=150
+        )
+
+        st.write(response.choices[0].message.content)
+
+
 
 
 
