@@ -124,7 +124,7 @@ elif apply == "disease prediction":
     if "prediction" in st.session_state:
         client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-        if st.button("Get Cure & Recommendation"):
+        if st.button("Get Cure & Recommendation") or 1:
             disease = st.session_state["prediction"]
             prompt = f"Give treatment and prevention tips for {disease} in plants."
 
@@ -140,5 +140,6 @@ elif apply == "disease prediction":
 
             st.subheader("Cure & Recommendation")
             st.write(response.choices[0].message.content)
+
 
 
