@@ -132,9 +132,10 @@ elif(apply=="disease prediction"):
             {"role": "user", "content": prompt}
             ],
             max_tokens=200
-        )
+            )
 
-        st.subheader("Cure & Recommendation")
-        st.write(response.choices[0].message.content)
+            st.subheader("Cure & Recommendation")
+            st.write(response.choices[0].message.content)
 
     
+
