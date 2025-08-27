@@ -116,7 +116,7 @@ elif(apply=="disease prediction"):
         "Tomato___healthy"
     ]
         st.success(f"Your plant is having this disease: {class_names[result_indx]}")
-        st.session_state["prediction"] = class_name[result_index]
+        st.session_state["prediction"] = class_names[result_index]
 
         
 
@@ -140,6 +140,7 @@ elif(apply=="disease prediction"):
               max_tokens=150
             )
             st.write(response.choices[0].message.content)
+
 
 
 
