@@ -13,7 +13,7 @@ import numpy as np
 #model predection 
 def model_prediction(test_imag):
     model = tf.keras.models.load_model(
-    "trained_model.keras",compile=False
+    "trained_model.h5",compile=False
     )
     img = image.load_img(test_imag, target_size=(128,128))
     img_arr = image.img_to_array(img)
@@ -114,4 +114,5 @@ elif(apply=="disease prediction"):
         st.success("your plant is having this disease :",class_names[result_indx])
 
     
+
 
