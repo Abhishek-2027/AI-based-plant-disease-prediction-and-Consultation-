@@ -139,4 +139,6 @@ elif apply == "disease prediction":
                 )
 
             st.subheader("Cure & Recommendation")
-            st.write(response.choices[0].message["content"])
+            st.write(response.choices[0].message.content)
+
+
