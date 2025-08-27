@@ -125,9 +125,8 @@ elif(apply=="disease prediction"):
 
     # Initialize client with API key stored in Streamlit secrets
         client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-
         if st.button("Get Cure & Recommendation"):
-      
+            
             disease = st.session_state.get("prediction", "Unknown disease")
             prompt = f"Give treatment and prevention tips for {disease} in plants."
 
@@ -136,10 +135,12 @@ elif(apply=="disease prediction"):
             messages=[
                 {"role": "system", "content": "You are a plant disease expert."},
                 {"role": "user", "content": prompt}
-              ],
-              max_tokens=150
-            )
-            st.write(response.choices[0].message.content)
+            ],
+            max_tokens=200
+        )
+
+        st.subheader("Cure & Recommendation")
+        st.write(response.choices[0].message.content)
 
 
 
