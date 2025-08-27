@@ -20,6 +20,7 @@ def model_prediction(test_imag):
     img_arr = np.expand_dims(img_arr, axis=0)   # add batch dimension if needed
     pred=model.predict(img_arr)
     pred_indx=np.argmax(pred)
+    return pred_indx
 
 
 st.sidebar.title("dashboard")
@@ -114,6 +115,7 @@ elif(apply=="disease prediction"):
         st.success(f"Your plant is having this disease: {class_names[result_indx]}")
 
     
+
 
 
 
