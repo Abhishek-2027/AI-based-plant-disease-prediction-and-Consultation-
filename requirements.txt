@@ -1,5 +1,16 @@
+# Streamlit UI
 streamlit>=1.36
-tensorflow==2.15.0
-keras==3.3.3
+
+# TensorFlow (supports Keras 3.8.0 and Python 3.13)
+tensorflow==2.20.0
+
+# Keras (must be >= 3.8.0 to load your model properly)
+keras>=3.8.0
+
+# Image processing
 numpy
 pillow
+
+# Optional extras (if you use them)
+opencv-python-headless
+scikit-learn
