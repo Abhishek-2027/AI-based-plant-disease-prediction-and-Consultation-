@@ -1,0 +1,21 @@
+# Core App Framework
+streamlit==1.37.1          # for building and deploying the UI
+
+# Machine Learning / Deep Learning
+tensorflow==2.15.0         # full version (GPU not supported on Streamlit Cloud)
+# OR: tensorflow-cpu==2.15.0   # smaller, faster build on cloud
+
+# Data & Image Processing
+numpy==1.26.4              # numerical arrays
+pillow==10.2.0             # image handling (used by keras.preprocessing)
+
+# Utilities
+gdown==5.1.0               # only needed if you download model from Google Drive
+requests==2.32.3           # optional: network requests if needed
+
+# (Optional) for performance improvements
+protobuf==4.25.3           # required by TensorFlow 2.15 on some systems
+h5py==3.11.0               # HDF5 backend (needed for .h5 models)
+
+# (Optional) if you plan to use Pandas anywhere
+pandas==2.2.2
