@@ -62,6 +62,7 @@ if apply=="Home":
     """)
 
 elif(apply=="about"):
+  
     st.header("about")
 
 elif(apply=="disease prediction"):
@@ -71,6 +72,7 @@ elif(apply=="disease prediction"):
         st.image(test_image,use_container_width=True)
 
     if(st.button("check disease")):
+      
         st.write(".....searchig best match ....")
         result_indx=model_prediction(test_image)
         class_names = [
@@ -125,20 +127,20 @@ elif(apply=="disease prediction"):
       client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
       if st.button("Get Cure & Recommendation"):
-        
-        disease = st.session_state.get("prediction", "Unknown disease")
-        prompt = f"Give treatment and prevention tips for {disease} in plants."
+      
+          disease = st.session_state.get("prediction", "Unknown disease")
+          prompt = f"Give treatment and prevention tips for {disease} in plants."
 
-        response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
+          response = client.chat.completions.create(
+          model="gpt-4o-mini",
+          messages=[
             {"role": "system", "content": "You are a plant disease expert."},
             {"role": "user", "content": prompt}
-          ],
-          max_tokens=150
-        )
+            ],
+            max_tokens=150
+          )
+          st.write(response.choices[0].message.content)
 
-        st.write(response.choices[0].message.content)
 
 
 
